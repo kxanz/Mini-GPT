@@ -1,15 +1,19 @@
-# Mini-GPT Shakespeare Generator
+# Nano-GPT: Character-Level Shakespeare Generator
 
-A character-level language model trained on the works of Shakespeare. Built from scratch using PyTorch to understand the fundamentals of Transformer architectures.
+This repository contains a from-scratch implementation of a **Transformer Decoder**, following the architecture that powers modern LLMs like GPT-4. 
 
-### 🛠 Installation
-1. Clone the repo
-2. Create a virtual environment: `python -m venv .venv`
-3. Activate it: `source .venv/bin/activate`
-4. Install dependencies: `pip install -r requirements.txt`
+## 🔬 Architecture Overview
+The model is a character-level language model that predicts the next character in a sequence based on a context of 32 previous characters.
 
-### 🧠 Model Details
-- **Architecture:** Decoder-only Transformer
-- **Layers:** 4 Transformer Blocks
-- **Attention:** 4-head Masked Self-Attention
-- **Dataset:** 1.1MB of Shakespeare text
+### Key Components:
+* **Multi-Head Self-Attention:** Parallel "heads" that allow the model to focus on different parts of the text simultaneously.
+* **Causal Masking:** A triangular mask that prevents the model from "looking into the future" during training.
+* **Residual Connections & LayerNorm:** Architectural choices that prevent vanishing gradients and allow for deeper networks.
+
+## 🛠️ Hyperparameters
+- **Batch Size:** 16
+- **Block Size (Context):** 32
+- **Embedding Dimension:** 64
+- **Attention Heads:** 4
+- **Layers:** 4
+- **Dropout:** 0.0 (No regularization for this small scale)
